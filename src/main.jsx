@@ -8,6 +8,7 @@ import Home from "./Component/Home/Home.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Context from "./Context/Context.jsx";
 import Add from "./Component/Add Post/Add.jsx";
+import Details from "./Post Details/Details.jsx";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
       {
         path: "/addpost",
         element: <Add></Add>,
+      },
+      {
+        path: "/details",
+        element: <Details></Details>,
       },
     ],
   },

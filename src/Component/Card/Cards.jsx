@@ -16,7 +16,7 @@ const Cards = () => {
 
   return (
     <div className="my-10">
-      <div className="grid grid-cols-3 gap-4">
+      <div className="grid lg:grid-cols-3 gap-4">
         {cards.map((card, index) => (
           <Card key={index} card={card}></Card>
         ))}
