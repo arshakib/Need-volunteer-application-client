@@ -17,7 +17,7 @@ const Add = () => {
     const description = form.description.value;
     const category = form.category.value;
     const location = form.location.value;
-    const volunteersNeeded = form.volunteersNeeded.value;
+    const volunteersNeeded = parseInt(form.volunteersNeeded.value);
     const deadline = format(new Date(startDate), "P");
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;

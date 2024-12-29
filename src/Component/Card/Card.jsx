@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const Card = ({ card }) => {
   const { thumbnail, title, category, deadline, _id } = card;
-  console.log(_id);
+
   return (
     <div className=" w-10/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
       <img src={thumbnail} alt="" className="w-full h-48 object-cover" />
@@ -12,11 +12,11 @@ const Card = ({ card }) => {
         <p className="text-sm text-gray-600 mt-1">
           <span className="font-medium">Category:</span> {category}
         </p>
-        <p className="text-sm text-gray-600 mt-1">
+        <p className=" my-4 text-sm text-gray-600 mt-1">
           <span className="font-medium">Deadline:</span> {deadline}
         </p>
         <Link
-          className="mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+          className=" my-4 mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
           to={`details/${_id}`}
         >
           View Details

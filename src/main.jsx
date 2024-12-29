@@ -9,6 +9,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Context from "./Context/Context.jsx";
 import Add from "./Component/Add Post/Add.jsx";
 import Details from "./Post Details/Details.jsx";
+import Volunteer from "./Be Volunteer/Volunteer.jsx";
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,12 @@ const router = createBrowserRouter([
         element: <Add></Add>,
       },
       {
-        path: "/details",
+        path: "/details/:id",
         element: <Details></Details>,
+      },
+      {
+        path: "/apply/:id",
+        element: <Volunteer></Volunteer>,
       },
     ],
   },
