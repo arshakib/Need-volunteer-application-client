@@ -10,6 +10,7 @@ import Context from "./Context/Context.jsx";
 import Add from "./Component/Add Post/Add.jsx";
 import Details from "./Post Details/Details.jsx";
 import Volunteer from "./Be Volunteer/Volunteer.jsx";
+import All from "./All Card/All.jsx";
 
 const router = createBrowserRouter([
   {
@@ -33,12 +34,16 @@ const router = createBrowserRouter([
         element: <Add></Add>,
       },
       {
-        path: "/details/:id",
+        path: "/allpost/details/:id",
         element: <Details></Details>,
       },
       {
         path: "/apply/:id",
         element: <Volunteer></Volunteer>,
+      },
+      {
+        path: "/allpost",
+        element: <All></All>,
       },
     ],
   },

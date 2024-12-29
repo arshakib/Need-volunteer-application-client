@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Card from "./Card";
+import { Link } from "react-router-dom";
 
 const Cards = () => {
   const [cards, setCards] = useState([]);
@@ -22,7 +23,9 @@ const Cards = () => {
         ))}
       </div>
       <div className="flex justify-center my-6">
-        <button className="btn btn-outline btn-success">See All</button>
+        <Link to="/allpost" className="btn btn-outline btn-success">
+          See All
+        </Link>
       </div>
     </div>
   );
