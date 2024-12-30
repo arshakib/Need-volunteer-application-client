@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Context/Context";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 const Volunteer = () => {
   const { user } = useContext(AuthContext);
@@ -9,7 +10,7 @@ const Volunteer = () => {
   const id = useParams().id;
   useEffect(() => {
     try {
-      axios.get(`http://localhost:5000/details/${id}`).then((res) => {
+      axios.get(`http://localhost:5000/allpost/details/${id}`).then((res) => {
         console.log(res.data);
         setFormData(res.data);
       });
@@ -31,6 +32,8 @@ const Volunteer = () => {
     const organizerName = form.organizerName.value;
     const organizerEmail = form.organizerEmail.value;
     const status = form.status.value;
+    const volunteerName = user?.displayName;
+    const volunteerEmail = user?.email;
     const suggestion = form.suggestion.value;
 
     const apply = {
@@ -44,6 +47,8 @@ const Volunteer = () => {
       organizerName,
       organizerEmail,
       status,
+      volunteerName,
+      volunteerEmail,
       suggestion,
     };
 
@@ -57,11 +62,14 @@ const Volunteer = () => {
       console.log(res.data);
     });
 
+    toast.success("Volunteer request submitted successfully!");
+
     form.reset();
   };
 
   return (
     <div className="my-6">
+      <ToastContainer />
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border rounded shadow"

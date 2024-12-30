@@ -11,6 +11,11 @@ import Add from "./Component/Add Post/Add.jsx";
 import Details from "./Post Details/Details.jsx";
 import Volunteer from "./Be Volunteer/Volunteer.jsx";
 import All from "./All Card/All.jsx";
+import Mypost from "./My posts/Mypost.jsx";
+import Update from "./Update Post/Update.jsx";
+import Request from "./Volunteer request/Request.jsx";
+import Error from "./ErrorPage/Error.jsx";
+import Private from "./Private/Private.jsx";
 
 const router = createBrowserRouter([
   {
@@ -31,21 +36,61 @@ const router = createBrowserRouter([
       },
       {
         path: "/addpost",
-        element: <Add></Add>,
+        element: (
+          <Private>
+            <Add></Add>
+          </Private>
+        ),
       },
       {
         path: "/allpost/details/:id",
-        element: <Details></Details>,
+        element: (
+          <Private>
+            <Details></Details>
+          </Private>
+        ),
       },
       {
         path: "/apply/:id",
-        element: <Volunteer></Volunteer>,
+        element: (
+          <Private>
+            <Volunteer></Volunteer>
+          </Private>
+        ),
       },
       {
         path: "/allpost",
         element: <All></All>,
       },
+      {
+        path: "/mypost",
+        element: (
+          <Private>
+            <Mypost></Mypost>
+          </Private>
+        ),
+      },
+      {
+        path: "/update/:id",
+        element: (
+          <Private>
+            <Update></Update>
+          </Private>
+        ),
+      },
+      {
+        path: "/request",
+        element: (
+          <Private>
+            <Request></Request>
+          </Private>
+        ),
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Error></Error>,
   },
 ]);
 

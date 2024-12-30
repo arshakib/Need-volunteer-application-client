@@ -1,7 +1,15 @@
-const Nav = () => {
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
+import { DarkModeSwitch } from "react-toggle-dark-mode";
+import { AuthContext } from "../Context/Context";
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo-vso.svg";
+
+const Nav = ({ isDarkMode, toggleDarkMode }) => {
+  const { user, logout } = useContext(AuthContext);
   return (
-    <div className="sticky top-0 z-50 w-10/12 mx-auto">
-      <div className="navbar bg-base-100">
+    <div className="sticky top-0 z-50 w-10/12 mx-auto backdrop-blur-md">
+      <div className="navbar">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -25,54 +33,76 @@ const Nav = () => {
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a>All volunteer Need posts</a>
+                <Link to="/allpost">All volunteer Need posts</Link>
               </li>
               <li>
-                <a>Login</a>
+                <Link to="/request">My Application</Link>
               </li>
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">daisyUI</a>
+          <img className="lg:w-24 w-16" src={logo} alt="" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
             <li>
-              <a>Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a>All volunteer Need posts</a>
+              <Link to="/allpost">All volunteer Need posts</Link>
             </li>
             <li>
-              <a>Login</a>
+              <Link to="/request">My Application</Link>
             </li>
           </ul>
         </div>
         <div className="navbar-end">
+          <DarkModeSwitch
+            className="mr-3"
+            checked={isDarkMode}
+            onChange={toggleDarkMode}
+            size={30} // size of the toggle button
+          />
+
           <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="Tailwind CSS Navbar component"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
-              </div>
-            </div>
+            {user ? (
+              <>
+                <button onClick={logout} className="btn mr-4">
+                  LogOut
+                </button>
+
+                <div className="dropdown dropdown-end">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
+                  >
+                    <div>
+                      <img
+                        src={user?.photoURL}
+                        alt="User Photo"
+                        className="lg:w-24 w-14 h-24 rounded-full object-cover tooltip"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            ) : (
+              <NavLink className="btn mr-4" to="/login">
+                Login
+              </NavLink>
+            )}
             <ul
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
               <li>
-                <a>Add Volunteer need Post</a>
+                <Link to="/addpost">Add Volunteer need Post</Link>
               </li>
               <li>
-                <a>Manage My Posts</a>
+                <Link to="/mypost">Manage My Posts</Link>
               </li>
             </ul>
           </div>

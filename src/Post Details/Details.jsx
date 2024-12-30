@@ -81,7 +81,9 @@ const Details = () => {
           <Link
             to={`/apply/${id}`}
             className={`mt-6 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 ${
-              data.volunteersNeeded === 0 ? "disabled" : ""
+              data.volunteersNeeded === 0
+                ? "bg-blue-500 text-white font-bold py-2 px-4 rounded opacity-50  btn-disabled "
+                : ""
             }`}
           >
             Be a Volunteer

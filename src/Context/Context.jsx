@@ -10,6 +10,7 @@ import {
   sendPasswordResetEmail,
   updateProfile,
 } from "firebase/auth";
+import axios from "axios";
 export const AuthContext = createContext(null);
 // eslint-disable-next-line react/prop-types
 const Context = ({ children }) => {
@@ -58,6 +59,21 @@ const Context = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+
+      if (currentUser?.email) {
+        const user = { email: currentUser.email };
+        axios
+          .post("http://localhost:5000/jwt", user, { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+          });
+      } else {
+        axios
+          .post("http://localhost:5000/logout", { withCredentials: true })
+          .then((res) => {
+            console.log(res.data);
+          });
+      }
       setLoading(false);
       console.log(currentUser);
     });
