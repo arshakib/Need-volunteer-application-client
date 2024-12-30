@@ -10,9 +10,7 @@ const Request = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/applied/${user?.email}`, {
-        withCredentials: true,
-      })
+      .get(`https://volunteer-blue.vercel.app/applied/${user?.email}`)
       .then((res) => {
         setPosts(res.data);
         console.log(res.data);
@@ -24,7 +22,7 @@ const Request = () => {
   console.log(posts);
   const handleDelete = (id) => {
     axios
-      .delete(`http://localhost:5000/request/${id}`)
+      .delete(`https://volunteer-blue.vercel.app/request/${id}`)
       .then((res) => {
         if (res.data.deletedCount > 0) {
           setPosts(posts.filter((post) => post._id !== id));

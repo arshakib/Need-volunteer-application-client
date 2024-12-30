@@ -10,10 +10,12 @@ const Volunteer = () => {
   const id = useParams().id;
   useEffect(() => {
     try {
-      axios.get(`http://localhost:5000/allpost/details/${id}`).then((res) => {
-        console.log(res.data);
-        setFormData(res.data);
-      });
+      axios
+        .get(`https://volunteer-blue.vercel.app/allpost/details/${id}`)
+        .then((res) => {
+          console.log(res.data);
+          setFormData(res.data);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -54,13 +56,17 @@ const Volunteer = () => {
 
     console.log(apply);
 
-    axios.post(`http://localhost:5000/applied`, apply).then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .post(`https://volunteer-blue.vercel.app/applied`, apply)
+      .then((res) => {
+        console.log(res.data);
+      });
 
-    axios.patch(`http://localhost:5000/update/${id}`, apply).then((res) => {
-      console.log(res.data);
-    });
+    axios
+      .patch(`https://volunteer-blue.vercel.app/update/${id}`, apply)
+      .then((res) => {
+        console.log(res.data);
+      });
 
     toast.success("Volunteer request submitted successfully!");
 

@@ -7,7 +7,7 @@ const Cards = () => {
   const [cards, setCards] = useState([]);
   useEffect(() => {
     try {
-      axios.get("http://localhost:5000/posts").then((res) => {
+      axios.get("https://volunteer-blue.vercel.app/posts").then((res) => {
         setCards(res.data);
       });
     } catch (error) {

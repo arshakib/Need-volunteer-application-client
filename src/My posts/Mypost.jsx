@@ -10,7 +10,7 @@ const Mypost = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/myposts/${user?.email}`)
+      .get(`https://volunteer-blue.vercel.app/myposts/${user?.email}`)
       .then((res) => {
         setPost(res.data);
       })
@@ -31,7 +31,7 @@ const Mypost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:5000/posts/${id}`)
+          .delete(`https://volunteer-blue.vercel.app/posts/${id}`)
           .then((res) => {
             if (res.data.deletedCount > 0) {
               Swal.fire({

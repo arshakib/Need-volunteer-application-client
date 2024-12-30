@@ -9,10 +9,12 @@ const All = () => {
   const [isTrue, setIsTrue] = useState(false);
   useEffect(() => {
     try {
-      axios.get(`http://localhost:5000/all?filter=${filter}`).then((res) => {
-        setCards(res.data);
-        console.log(res.data);
-      });
+      axios
+        .get(`https://volunteer-blue.vercel.app/all?filter=${filter}`)
+        .then((res) => {
+          setCards(res.data);
+          console.log(res.data);
+        });
     } catch (error) {
       console.log(error);
     }

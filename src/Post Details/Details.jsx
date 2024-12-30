@@ -8,10 +8,12 @@ const Details = () => {
 
   useEffect(() => {
     try {
-      axios.get(`http://localhost:5000/allpost/details/${id}`).then((res) => {
-        console.log(res.data);
-        setData(res.data);
-      });
+      axios
+        .get(`https://volunteer-blue.vercel.app/allpost/details/${id}`)
+        .then((res) => {
+          console.log(res.data);
+          setData(res.data);
+        });
     } catch (error) {
       console.log(error);
     }

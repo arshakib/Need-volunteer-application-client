@@ -35,18 +35,20 @@ const Add = () => {
     };
 
     try {
-      await axios.post("http://localhost:5000/posts", post).then((res) => {
-        toast.success("Post added successfully", {
-          position: "top-right",
-          autoClose: 2000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
+      await axios
+        .post("https://volunteer-blue.vercel.app/posts", post)
+        .then((res) => {
+          toast.success("Post added successfully", {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          console.log(res.data);
         });
-        console.log(res.data);
-      });
     } catch (error) {
       console.log(error);
     }

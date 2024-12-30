@@ -15,7 +15,7 @@ const Update = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/allpost/details/${id}`)
+      .get(`https://volunteer-blue.vercel.app/allpost/details/${id}`)
       .then((res) => {
         console.log(res.data);
         setFormData(res.data);
@@ -52,7 +52,7 @@ const Update = () => {
     };
 
     axios
-      .patch(`http://localhost:5000/posts/${id}`, apply)
+      .patch(`https://volunteer-blue.vercel.app/posts/${id}`, apply)
       .then((res) => {
         console.log(res.data);
       })
