@@ -63,45 +63,66 @@ const Update = () => {
   };
 
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-11/12 mx-auto p-4">
+      {/* Toast Container */}
       <ToastContainer />
-      <div className="p-4">
-        <h2 className="text-lg font-bold mb-4">Update Volunteer Need Post</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+
+      {/* Form Container */}
+      <div className="p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg">
+        {/* Form Heading */}
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+          Update Volunteer Need Post
+        </h2>
+
+        {/* Form */}
+        <form onSubmit={handleSubmit} className="space-y-6">
+          {/* Thumbnail Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">Thumbnail</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Thumbnail
+            </label>
             <input
               type="text"
               name="thumbnail"
               defaultValue={formData.thumbnail}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Post Title Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">Post Title</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Post Title
+            </label>
             <input
               type="text"
               name="title"
               defaultValue={formData.title}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Description Textarea */}
           <div>
-            <label className="block text-sm font-medium mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Description
             </label>
             <textarea
               name="description"
               defaultValue={formData.description}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Category Select */}
           <div>
-            <label className="block text-sm font-medium mb-1">Category</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Category
+            </label>
             <select
               name="category"
               value={formData.category}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               <option value="">Select Category</option>
               <option value="healthcare">Healthcare</option>
@@ -110,36 +131,48 @@ const Update = () => {
               <option value="animal-welfare">Animal Welfare</option>
             </select>
           </div>
+
+          {/* Location Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">Location</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Location
+            </label>
             <input
               type="text"
               name="location"
               defaultValue={formData.location}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Volunteers Needed Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               No. of Volunteers Needed
             </label>
             <input
               type="number"
               name="volunteersNeeded"
               defaultValue={formData.volunteersNeeded}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Deadline DatePicker */}
           <div>
-            <label className="block text-sm font-medium mb-1">Deadline</label>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Deadline
+            </label>
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
+
+          {/* Organizer Name Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Organizer Name
             </label>
             <input
@@ -147,11 +180,13 @@ const Update = () => {
               name="organizerName"
               value={user?.displayName}
               readOnly
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-not-allowed"
             />
           </div>
+
+          {/* Organizer Email Input */}
           <div>
-            <label className="block text-sm font-medium mb-1">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
               Organizer Email
             </label>
             <input
@@ -159,12 +194,14 @@ const Update = () => {
               name="organizerEmail"
               value={user?.email}
               readOnly
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-not-allowed"
             />
           </div>
+
+          {/* Submit Button */}
           <button
             type="submit"
-            className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-300"
           >
             Update Post
           </button>

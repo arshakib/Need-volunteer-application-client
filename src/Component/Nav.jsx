@@ -47,6 +47,16 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
                 <li>
                   <Link to="/request">My Application</Link>
                 </li>
+                {user && (
+                  <>
+                    <li>
+                      <Link to="/addpost">Add Volunteer Need Post</Link>
+                    </li>
+                    <li>
+                      <Link to="/mypost">Manage My Posts</Link>
+                    </li>
+                  </>
+                )}
               </ul>
             </div>
             <a href="/">
@@ -66,6 +76,16 @@ const Nav = ({ isDarkMode, toggleDarkMode }) => {
               <li>
                 <Link to="/request">My Application</Link>
               </li>
+              {user && (
+                <>
+                  <li>
+                    <Link to="/addpost">Add Volunteer Need Post</Link>
+                  </li>
+                  <li>
+                    <Link to="/mypost">Manage My Posts</Link>
+                  </li>
+                </>
+              )}
             </ul>
           </div>
 

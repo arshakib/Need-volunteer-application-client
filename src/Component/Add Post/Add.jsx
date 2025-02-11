@@ -55,54 +55,64 @@ const Add = () => {
   };
   return (
     <div>
+      {/* Toast Container */}
       <ToastContainer />
-      <div className="max-w-4xl mx-auto bg-white shadow-md rounded-lg p-8 mt-8">
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+
+      {/* Form Container */}
+      <div className="max-w-4xl mx-auto bg-white dark:bg-gray-800 shadow-lg rounded-lg p-8 mt-8 mb-8">
+        {/* Form Heading */}
+        <h1 className="text-2xl font-semibold text-gray-800 dark:text-white mb-6">
           Add Volunteer Need Post
         </h1>
-        <form onSubmit={handelSubmit}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+
+        {/* Form */}
+        <form onSubmit={handelSubmit} className="space-y-6">
+          {/* Thumbnail URL Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Thumbnail URL
             </label>
             <input
               type="text"
               name="thumbnail"
               placeholder="Enter image URL"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Post Title Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Post Title
             </label>
             <input
               type="text"
               name="title"
               placeholder="Enter post title"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Description Textarea */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Description
             </label>
             <textarea
               name="description"
               placeholder="Enter description"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Category Select */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Category
             </label>
             <select
               name="category"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             >
               <option value="healthcare">Healthcare</option>
               <option value="education">Education</option>
@@ -111,43 +121,47 @@ const Add = () => {
             </select>
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Location Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Location
             </label>
             <input
               type="text"
               name="location"
               placeholder="Enter location"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Volunteers Needed Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               No. of Volunteers Needed
             </label>
             <input
               type="number"
               name="volunteersNeeded"
               placeholder="Enter number"
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Deadline DatePicker */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Deadline
             </label>
             <DatePicker
               selected={startDate}
               onChange={(date) => setStartDate(date)}
-              className="w-full px-4 py-2 border rounded-md focus:ring focus:ring-blue-200"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Organizer Name Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Organizer Name
             </label>
             <input
@@ -155,12 +169,13 @@ const Add = () => {
               name="organizerName"
               value={user?.displayName}
               readOnly
-              className="w-full px-4 py-2 border rounded-md bg-gray-100 text-gray-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-not-allowed"
             />
           </div>
 
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-600 mb-2">
+          {/* Organizer Email Input */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Organizer Email
             </label>
             <input
@@ -168,13 +183,14 @@ const Add = () => {
               name="organizerEmail"
               value={user?.email}
               readOnly
-              className="w-full px-4 py-2 border rounded-md bg-gray-100 text-gray-500"
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-600 text-gray-900 dark:text-gray-100 cursor-not-allowed"
             />
           </div>
 
+          {/* Submit Button */}
           <button
             type="submit"
-            className="w-full py-2 px-4 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
+            className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-300"
           >
             Add Post
           </button>

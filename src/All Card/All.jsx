@@ -28,8 +28,10 @@ const All = () => {
 
   return (
     <div className="my-10">
-      <div className=" w-1/5 mx-auto flex justify-between">
-        <label className="input input-bordered flex items-center gap-2">
+      {/* Search and Toggle View Section */}
+      <div className="w-full md:w-1/2 lg:w-1/3 mx-auto flex flex-col md:flex-row items-center justify-between gap-4 mb-8">
+        {/* Search Input */}
+        <label className="input input-bordered flex items-center gap-2 w-full md:w-auto">
           <input
             type="text"
             onChange={(e) => setFilter(e.target.value)}
@@ -50,35 +52,71 @@ const All = () => {
           </svg>
         </label>
 
-        <button onClick={layout} className="ml-7 btn btn-outline btn-info">
-          {isTrue ? "Grid View" : "List View"}
+        {/* Toggle View Button */}
+        <button
+          onClick={layout}
+          className="w-full md:w-auto btn btn-outline btn-info flex items-center gap-2"
+        >
+          {isTrue ? (
+            <>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM14 11a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+              </svg>
+              Grid View
+            </>
+          ) : (
+            <>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                  clipRule="evenodd"
+                />
+              </svg>
+              List View
+            </>
+          )}
         </button>
       </div>
+
+      {/* Grid View */}
       {isTrue ? (
-        <div
-          className="grid lg:grid-cols-3 gap-4 my-6
-      "
-        >
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 my-8">
           {cards.map((card) => (
-            <div className=" w-10/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
+            <div
+              key={card._id}
+              className="w-11/12 mx-auto bg-white shadow-md rounded-lg overflow-hidden border border-gray-200 hover:shadow-xl transition-transform transform hover:-translate-y-2"
+            >
               <img
                 src={card.thumbnail}
-                alt=""
-                className="w-full h-48 object-cover"
+                alt={card.title}
+                className="w-full h-56 object-cover rounded-t-lg"
               />
-              <div className="p-4">
-                <h2 className="text-lg font-semibold text-gray-800">
+              <div className="p-5">
+                <h2 className="text-xl font-semibold text-gray-800 hover:text-blue-600 transition-colors">
                   {card.title}
                 </h2>
-                <p className="text-sm text-gray-600 mt-1">
-                  <span className="font-medium">Category:</span> {card.category}
+                <p className="text-sm text-gray-600 mt-3">
+                  <span className="font-medium text-gray-900">Category:</span>{" "}
+                  {card.category}
                 </p>
-                <p className=" my-4 text-sm text-gray-600 mt-1">
-                  <span className="font-medium">Deadline:</span> {card.deadline}
+                <p className="text-sm text-gray-600 mt-2">
+                  <span className="font-medium text-gray-900">Deadline:</span>{" "}
+                  {card.deadline}
                 </p>
                 <Link
-                  className=" my-4 mt-4 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                   to={`details/${card._id}`}
+                  className="mt-5 inline-block w-full text-center px-4 py-2 bg-blue-600 text-white font-medium text-sm rounded-md hover:bg-blue-700 transition-all duration-300"
                 >
                   View Details
                 </Link>
@@ -87,40 +125,54 @@ const All = () => {
           ))}
         </div>
       ) : (
-        <div className="my-6 w-10/12 mx-auto bg-white shadow-lg rounded-lg overflow-hidden border border-gray-200">
-          <table className="table-auto w-full border-collapse border border-gray-200">
-            <thead>
-              <tr className="bg-gray-100">
-                <th className="border border-gray-300 px-4 py-2">Thumbnail</th>
-                <th className="border border-gray-300 px-4 py-2">Title</th>
-                <th className="border border-gray-300 px-4 py-2">Category</th>
-                <th className="border border-gray-300 px-4 py-2">Deadline</th>
-                <th className="border border-gray-300 px-4 py-2">Action</th>
+        // List View
+        <div className="my-6 w-full overflow-x-auto bg-white shadow-lg rounded-lg border border-gray-200">
+          <table className="w-full mx-auto min-w-max border-collapse">
+            <thead className="bg-gray-50">
+              <tr>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                  Thumbnail
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                  Title
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                  Category
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                  Deadline
+                </th>
+                <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">
+                  Action
+                </th>
               </tr>
             </thead>
             <tbody>
               {cards.map((card) => (
-                <tr key={card._id}>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
+                <tr
+                  key={card._id}
+                  className="hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <td className="px-4 py-3">
                     <img
                       src={card.thumbnail}
-                      alt=""
-                      className="w-32 h-20 object-cover mx-auto"
+                      alt={card.title}
+                      className="w-16 h-12 object-cover rounded-md"
                     />
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="px-4 py-3 text-sm text-gray-700">
                     {card.title}
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="px-4 py-3 text-sm text-gray-700">
                     {card.category}
                   </td>
-                  <td className="border border-gray-300 px-4 py-2">
+                  <td className="px-4 py-3 text-sm text-gray-700">
                     {card.deadline}
                   </td>
-                  <td className="border border-gray-300 px-4 py-2 text-center">
+                  <td className="px-4 py-3">
                     <Link
-                      className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition"
                       to={`details/${card._id}`}
+                      className="inline-block px-4 py-2 bg-blue-600 text-white text-sm rounded-md hover:bg-blue-700 transition-all duration-300"
                     >
                       View Details
                     </Link>
@@ -131,8 +183,10 @@ const All = () => {
           </table>
         </div>
       )}
+
+      {/* No Cards Message */}
       {cards.length === 0 && (
-        <p className="text-center py-4">No cards available.</p>
+        <p className="text-center py-6 text-gray-600">No cards available.</p>
       )}
     </div>
   );

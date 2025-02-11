@@ -34,12 +34,12 @@ const Request = () => {
       });
   };
   return (
-    <div>
+    <div className="h-dvh">
       <ToastContainer />
       <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold text-center mb-6">Volunteer Posts</h1>
         <div className="overflow-x-auto">
-          <table className="min-w-full bg-white shadow-md rounded-lg">
+          <table className="min-w-full shadow-md rounded-lg">
             <thead>
               <tr className="bg-gray-800 text-white">
                 <th className="py-2 px-4 text-left">Name</th>
@@ -50,7 +50,7 @@ const Request = () => {
             </thead>
             <tbody>
               {posts.map((post) => (
-                <tr key={post._id} className="hover:bg-gray-100 border-b">
+                <tr key={post._id} className=" border-b">
                   <td className="py-2 px-4">{post.volunteerName}</td>
                   <td className="py-2 px-4">{post.volunteerEmail}</td>
                   <td className="py-2 px-4">{post.deadline}</td>
@@ -71,7 +71,6 @@ const Request = () => {
           )}
         </div>
       </div>
-      );
     </div>
   );
 };
