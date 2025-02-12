@@ -49,19 +49,15 @@ const Mypost = () => {
     });
   };
 
-  //   console.log(post[0]?._id);
   return (
     <div className="container my-10">
       <div className="w-11/12 mx-auto p-4 ">
-        {/* Table Heading */}
         <h2 className="text-2xl font-bold text-gray-800 mb-6">
           Volunteer Needs Posts
         </h2>
 
-        {/* Table Container */}
         <div className="overflow-x-auto rounded-lg shadow-lg border border-gray-200">
           <table className="min-w-full bg-white">
-            {/* Table Header */}
             <thead className="bg-gradient-to-r from-blue-600 to-purple-600">
               <tr>
                 <th className="px-6 py-4 text-left text-sm font-semibold text-white uppercase tracking-wider">
@@ -79,32 +75,26 @@ const Mypost = () => {
               </tr>
             </thead>
 
-            {/* Table Body */}
             <tbody className="divide-y divide-gray-200">
               {post.map((post) => (
                 <tr
                   key={post._id}
                   className="hover:bg-gray-50 transition-colors duration-200"
                 >
-                  {/* Title */}
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
                     {post.title}
                   </td>
 
-                  {/* Location */}
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                     {post.location}
                   </td>
 
-                  {/* Date */}
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600">
                     {post.deadline}
                   </td>
 
-                  {/* Actions */}
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-center">
                     <div className="flex items-center justify-center gap-2">
-                      {/* Update Button */}
                       <Link
                         to={`/update/${post._id}`}
                         className="inline-flex items-center px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -120,7 +110,6 @@ const Mypost = () => {
                         Update
                       </Link>
 
-                      {/* Delete Button */}
                       <button
                         onClick={() => handleDelete(post._id)}
                         className="inline-flex items-center px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition-all duration-300 shadow-sm hover:shadow-md"
@@ -147,7 +136,6 @@ const Mypost = () => {
           </table>
         </div>
 
-        {/* No Posts Message */}
         {post.length === 0 && (
           <div className="text-center py-6">
             <p className="text-gray-600">No volunteer posts available.</p>
