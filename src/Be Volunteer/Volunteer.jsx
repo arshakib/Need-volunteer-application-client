@@ -75,134 +75,209 @@ const Volunteer = () => {
 
   return (
     <div className="my-6">
+      {/* Toast Container */}
       <ToastContainer />
+
+      {/* Form Container */}
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto p-4 border rounded shadow"
+        className="max-w-lg mx-auto p-6 bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700"
       >
-        <h2 className="text-lg font-bold mb-4">Volunteer Request Form</h2>
+        {/* Form Heading */}
+        <h2 className="text-2xl font-bold text-gray-800 dark:text-white mb-6">
+          Volunteer Request Form
+        </h2>
 
         {/* Read-only Fields */}
-        <label className="block mb-2">Thumbnail</label>
-        <input
-          type="text"
-          name="thumbnail"
-          value={formData.thumbnail}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+        <div className="space-y-4">
+          {/* Thumbnail */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Thumbnail
+            </label>
+            <input
+              type="text"
+              name="thumbnail"
+              value={formData.thumbnail}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Post Title</label>
-        <input
-          type="text"
-          name="title"
-          value={formData.title}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Post Title */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Post Title
+            </label>
+            <input
+              type="text"
+              name="title"
+              value={formData.title}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Description</label>
-        <textarea
-          name="description"
-          value={formData.description}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        ></textarea>
+          {/* Description */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Description
+            </label>
+            <textarea
+              name="description"
+              value={formData.description}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Category</label>
-        <input
-          type="text"
-          name="category"
-          value={formData.category}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Category */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Category
+            </label>
+            <input
+              type="text"
+              name="category"
+              value={formData.category}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Location</label>
-        <input
-          type="text"
-          name="location"
-          value={formData.location}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Location */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Location
+            </label>
+            <input
+              type="text"
+              name="location"
+              value={formData.location}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">No. of Volunteers Needed</label>
-        <input
-          type="text"
-          name="volunteersNeeded"
-          value={formData.volunteersNeeded}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Volunteers Needed */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              No. of Volunteers Needed
+            </label>
+            <input
+              type="text"
+              name="volunteersNeeded"
+              value={formData.volunteersNeeded}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Deadline</label>
-        <input
-          type="text"
-          name="date"
-          value={formData.deadline}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Deadline */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Deadline
+            </label>
+            <input
+              type="text"
+              name="date"
+              value={formData.deadline}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Organizer Name</label>
-        <input
-          type="text"
-          name="organizerName"
-          value={formData.organizerName}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Organizer Name */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Organizer Name
+            </label>
+            <input
+              type="text"
+              name="organizerName"
+              value={formData.organizerName}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Organizer Email</label>
-        <input
-          type="text"
-          name="organizerEmail"
-          value={formData.organizerEmail}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Organizer Email */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Organizer Email
+            </label>
+            <input
+              type="text"
+              name="organizerEmail"
+              value={formData.organizerEmail}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        {/* Logged-in User Info */}
-        <label className="block mb-2">Volunteer Name</label>
-        <input
-          type="text"
-          name="volunteerName"
-          value={user?.displayName}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Volunteer Name */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Volunteer Name
+            </label>
+            <input
+              type="text"
+              name="volunteerName"
+              value={user?.displayName}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        <label className="block mb-2">Volunteer Email</label>
-        <input
-          type="text"
-          name="volunteerEmail"
-          value={user?.email}
-          readOnly
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Volunteer Email */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Volunteer Email
+            </label>
+            <input
+              type="text"
+              name="volunteerEmail"
+              value={user?.email}
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
 
-        {/* Editable Field */}
-        <label className="block mb-2">Suggestion</label>
-        <textarea
-          name="suggestion"
-          value={formData.suggestion}
-          className="w-full mb-4 p-2 border rounded"
-        ></textarea>
+          {/* Suggestion (Editable Field) */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Suggestion
+            </label>
+            <textarea
+              name="suggestion"
+              value={formData.suggestion}
+              onChange={(e) =>
+                setFormData({ ...formData, suggestion: e.target.value })
+              }
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500 dark:focus:ring-blue-600 dark:focus:border-blue-600 bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100"
+              placeholder="Enter your suggestions (optional)"
+            />
+          </div>
 
-        {/* Status Field */}
-        <input
-          type="text"
-          name="status"
-          readOnly
-          value="request"
-          className="w-full mb-4 p-2 border rounded bg-gray-100"
-        />
+          {/* Status Field */}
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+              Status
+            </label>
+            <input
+              type="text"
+              name="status"
+              value="request"
+              readOnly
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-100 cursor-not-allowed"
+            />
+          </div>
+        </div>
 
         {/* Submit Button */}
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded hover:bg-blue-600"
+          className="w-full mt-6 px-4 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-md hover:from-blue-700 hover:to-purple-700 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition-all duration-300"
         >
           Request
         </button>
