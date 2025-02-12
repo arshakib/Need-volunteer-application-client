@@ -36,9 +36,7 @@ const NewsletterSection = () => {
               type="email"
               placeholder="Enter your email address"
               className="flex-1 px-6 py-4 rounded-lg border border-white/20 bg-white/10 text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50 transition-all"
-              value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required
             />
             <button
               type="submit"
@@ -52,12 +50,6 @@ const NewsletterSection = () => {
             We respect your privacy. Unsubscribe at any time.
           </p>
         </div>
-      </div>
-
-      {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden">
-        <div className="absolute -top-20 -left-20 w-64 h-64 bg-white/5 rounded-full blur-xl"></div>
-        <div className="absolute -bottom-20 -right-20 w-64 h-64 bg-white/5 rounded-full blur-xl"></div>
       </div>
     </section>
   );
